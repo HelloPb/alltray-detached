@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductAddSaveComponent } from './save.component';
-import { EditItemResolver } from '../services/resolver/edit-item.resolver';
+import { ExistingItemResolver } from '../services/resolver/edit-item.resolver';
 import { NewItemResolver } from '../services/resolver/new-item.resolver';
 
 const routes: Routes = [
@@ -13,7 +13,7 @@ const routes: Routes = [
   {
     path: ':id',
     component: ProductAddSaveComponent,
-    resolve: { item: EditItemResolver }
+    resolve: { item: ExistingItemResolver }
   }
 ];
 

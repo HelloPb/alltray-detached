@@ -6,31 +6,20 @@ import { ItemsService } from '../../../../../../shared/services/api/items/items.
 import { EditItemService } from '../provider/edit-item.service';
 
 @Injectable()
-export class EditItemResolver implements Resolve<Item> {
+export class ExistingItemResolver implements Resolve<Item> {
   constructor(private edit: EditItemService, private item: ItemsService, private router: Router) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Item> {
 
     const id = route.paramMap.get('id');
 
-    if (id === '0') {
-      return this.edit.get().take(1).map(item => {
-        if (item) {
-          return item;
-        } else {
-          this.router.navigate(['/content/products/add']);
-          return null;
-        }
-      });
-    } else {
-      return this.item.get(id).take(1).map(item => {
-        if (item) {
-          return item;
-        } else {
-          this.router.navigate(['/content/products/add']);
-          return null;
-        }
-      });
-    }
+    return this.edit.existingitem(id).take(1).map(item => {
+      if (item) {
+        return item;
+      } else {
+        this.router.navigate(['/content/products/add']);
+        return null;
+      }
+    });
   }
 }

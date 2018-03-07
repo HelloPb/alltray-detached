@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductAddBusinessHoursComponent } from './business-hours.component';
 import { ExistingItemResolver } from '../services/resolver/edit-item.resolver';
 import { NewItemResolver } from '../services/resolver/new-item.resolver';
+import { ProductAddDatesComponent } from './dates.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: ProductAddBusinessHoursComponent,
+    component: ProductAddDatesComponent,
     resolve: { item: NewItemResolver }
   },
   {
     path: ':id',
-    component: ProductAddBusinessHoursComponent,
+    component: ProductAddDatesComponent,
     resolve: { item: ExistingItemResolver }
   }
 ];
@@ -25,4 +25,4 @@ const routes: Routes = [
     RouterModule
   ]
 })
-export class ProductAddBusinessHoursRoutingModule { }
+export class ProductAddDatesRoutingModule { }

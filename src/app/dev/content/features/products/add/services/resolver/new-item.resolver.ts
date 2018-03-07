@@ -9,12 +9,13 @@ export class NewItemResolver implements Resolve<Item> {
   constructor(private edit: EditItemService, private router: Router) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Item> {
-    const self = this;
-    return Observable.create(function (observer) {
-      self.edit.reset().subscribe(item => {
-        observer.next(item);
-        observer.complete();
-      });
+    return this.edit.newitem().take(1).map(item => {
+      if (item) {
+        return item;
+      } else {
+        this.router.navigate(['/content/products/add']);
+        return null;
+      }
     });
   }
 }

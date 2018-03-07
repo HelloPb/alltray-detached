@@ -20,8 +20,8 @@ const routes: Routes = [
         loadChildren: 'app/dev/content/features/products/add/stock/stock.module#ProductAddStockExModule'
       },
       {
-        path: 'bh',
-        loadChildren: 'app/dev/content/features/products/add/business-hours/business-hours.module#ProductAddBusinessHoursExModule'
+        path: 'dates',
+        loadChildren: 'app/dev/content/features/products/add/dates/dates.module#ProductAddDatesExModule'
       },
       {
         path: 'save',

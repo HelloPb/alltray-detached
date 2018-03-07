@@ -7,3 +7,9 @@
     width: 285px;
     margin-right: 25px;
 }
+
+.atc-rc-add-item {
+    max-width: 500px;
+    width: 100%;
+    padding: 10px;
+}

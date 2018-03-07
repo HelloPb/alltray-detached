@@ -5,11 +5,11 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { EditItemService } from '../services/provider/edit-item.service';
 
 @Component({
-  selector: 'at-product-add-business-hours',
-  templateUrl: './business-hours.component.html',
-  styleUrls: ['./business-hours.component.css']
+  selector: 'at-product-add-dates',
+  templateUrl: './dates.component.html',
+  styleUrls: ['./dates.component.css']
 })
-export class ProductAddBusinessHoursComponent implements OnInit {
+export class ProductAddDatesComponent implements OnInit {
 
   private item: Item;
   public formGroup: FormGroup;
@@ -33,7 +33,6 @@ export class ProductAddBusinessHoursComponent implements OnInit {
       fri: this.formBuilder.array([]),
       sat: this.formBuilder.array([]),
     });
-
   }
 
   public back(): void {
