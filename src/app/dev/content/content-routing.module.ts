@@ -8,10 +8,6 @@ const routes: Routes = [
     component: ContentComponent,
     children: [
       {
-        path: '',
-        redirectTo: 'products'
-      },
-      {
         path: 'products',
         loadChildren: 'app/dev/content/features/products/products.module#ProductsExModule'
       }

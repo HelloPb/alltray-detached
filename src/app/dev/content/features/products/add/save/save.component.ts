@@ -37,7 +37,7 @@ export class ProductAddSaveComponent implements OnInit {
 
     this.edit.publish(this.item);
 
-    this.router.navigate([`/content/products/add/bh/0`]);
+    this.router.navigate([`/content/products/add/bh/${this.item.id}`]);
 
   }
 
@@ -47,7 +47,7 @@ export class ProductAddSaveComponent implements OnInit {
 
     this.edit.publish(this.item);
 
-    this.router.navigate([`/content/products/add/done/0`]);
+    this.router.navigate([`/content/products/add/done/${this.item.id}`]);
 
   }
 

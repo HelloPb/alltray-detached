@@ -7,12 +7,16 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    component: ProductAddDoneComponent
-  },
-  {
-    path: ':id',
-    component: ProductAddDoneComponent,
-    resolve: { item: ExistingItemResolver }
+    children: [
+      {
+        path: '',
+        component: ProductAddDoneComponent
+      },
+      {
+        path: ':id',
+        component: ProductAddDoneComponent,
+        resolve: { item: ExistingItemResolver }
+      }]
   }
 ];
 

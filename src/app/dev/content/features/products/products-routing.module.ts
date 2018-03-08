@@ -8,10 +8,6 @@ const routes: Routes = [
     component: ProductsComponent,
     children: [
       {
-        path: '',
-        redirectTo: 'home'
-      },
-      {
         path: 'home',
         loadChildren: 'app/dev/content/features/products/home/home.module#ProductHomeExModule'
       },

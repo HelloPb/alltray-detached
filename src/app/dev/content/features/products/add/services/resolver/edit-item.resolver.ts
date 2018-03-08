@@ -13,7 +13,7 @@ export class ExistingItemResolver implements Resolve<Item> {
 
     const id = route.paramMap.get('id');
 
-    return this.edit.existingitem(id).take(1).map(item => {
+    return this.edit.edititem(id).take(1).map(item => {
       if (item) {
         return item;
       } else {

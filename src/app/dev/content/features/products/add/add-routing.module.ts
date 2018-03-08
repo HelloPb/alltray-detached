@@ -8,10 +8,6 @@ const routes: Routes = [
     component: ProductAddComponent,
     children: [
       {
-        path: '',
-        redirectTo: 'choose',
-      },
-      {
         path: 'choose',
         loadChildren: 'app/dev/content/features/products/add/choose/choose.module#ProductAddChooseExModule'
       },

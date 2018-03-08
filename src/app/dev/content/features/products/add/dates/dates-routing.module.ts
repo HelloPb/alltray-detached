@@ -7,13 +7,17 @@ import { ProductAddDatesComponent } from './dates.component';
 const routes: Routes = [
   {
     path: '',
-    component: ProductAddDatesComponent,
-    resolve: { item: NewItemResolver }
-  },
-  {
-    path: ':id',
-    component: ProductAddDatesComponent,
-    resolve: { item: ExistingItemResolver }
+    children: [
+      {
+        path: '',
+        component: ProductAddDatesComponent,
+        resolve: { item: NewItemResolver }
+      },
+      {
+        path: ':id',
+        component: ProductAddDatesComponent,
+        resolve: { item: ExistingItemResolver }
+      }]
   }
 ];
 

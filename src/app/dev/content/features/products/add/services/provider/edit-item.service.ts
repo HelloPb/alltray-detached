@@ -8,35 +8,46 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 @Injectable()
 export class EditItemService {
 
-  private item = new Item();
-  private item$: BehaviorSubject<Item[]> = new BehaviorSubject<Item[]>([this.item]);
+  private item$: BehaviorSubject<Item> = new BehaviorSubject<Item>(new Item());
 
   constructor(private itemService: ItemsService) {
   }
 
   public newitem() {
-    return this.item$.map(x => x.find(item => item.id === ''));
+
+    try {
+      if (this.item$) {
+        this.item$.complete();
+        delete this.item$;
+      }
+    } catch (e) {
+    }
+
+    this.item$ = new BehaviorSubject<Item>(new Item());
+
+    return this.item$;
   }
 
-  public existingitem(id: string) {
+  public edititem(id: string) {
 
     let bExist = false;
 
-    if (this.item) {
-      if (this.item.id === id) {
+    const item = this.item$.value;
+
+    if (item) {
+      if (item.id === id) {
         bExist = true;
       }
     }
 
     if (bExist) {
-      return this.item$.map(x => x.find(item => item.id === id));
+      return this.item$;
     } else {
-      this.itemService.get(id);
+      return this.itemService.get(id);
     }
   }
 
   public publish(data: Item): void {
-    return this.item$.next([data]);
+    return this.item$.next(data);
   }
-
 }

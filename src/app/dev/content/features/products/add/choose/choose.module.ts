@@ -13,8 +13,8 @@ export class ProductAddChooseModule { }
 
 @NgModule({
   exports: [
+    ProductAddChooseModule,
     ProductAddChooseRoutingModule,
-    ProductAddChooseModule
   ]
 })
 export class ProductAddChooseExModule { }

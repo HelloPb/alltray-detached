@@ -37,7 +37,7 @@ export class ProductAddStockComponent implements OnInit {
 
     this.edit.publish(this.item);
 
-    this.router.navigate([`/content/products/add/choose/0`]);
+    this.router.navigate([`/content/products/add/choose/${this.item.id}`]);
 
   }
 
@@ -47,7 +47,7 @@ export class ProductAddStockComponent implements OnInit {
 
     this.edit.publish(this.item);
 
-    this.router.navigate([`/content/products/add/bh/0`]);
+    this.router.navigate([`/content/products/add/dates/${this.item.id}`]);
 
   }
 

@@ -7,13 +7,17 @@ import { NewItemResolver } from '../services/resolver/new-item.resolver';
 const routes: Routes = [
   {
     path: '',
-    component: ProductAddChooseComponent,
-    resolve: { item: NewItemResolver }
-  },
-  {
-    path: ':id',
-    component: ProductAddChooseComponent,
-    resolve: { item: ExistingItemResolver }
+    children: [
+      {
+        path: '',
+        component: ProductAddChooseComponent,
+        resolve: { item: NewItemResolver }
+      },
+      {
+        path: ':id',
+        component: ProductAddChooseComponent,
+        resolve: { item: ExistingItemResolver }
+      }]
   }
 ];
 
