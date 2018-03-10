@@ -17,3 +17,16 @@ h1, h2, h3, h4, h5, h6, p, span, a, div, li, button, input, label {
 .atc-bg-primary {
     background-color: #991a1a;
 }
+
+at-calendar ngb-datepicker {
+    width: 100%!important;
+}
+
+at-calendar .ngb-dp-day, at-calendar .ngb-dp-weekday, at-calendar .ngb-dp-week-number {
+    width: 100%!important;
+    height: 3rem!important;
+}
+
+at-calendar .ngb-dp-month { 
+    width: 100%!important;
+}

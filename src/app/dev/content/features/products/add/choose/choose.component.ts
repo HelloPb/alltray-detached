@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-import { EditItemService } from '../services/provider/edit-item.service';
 import { Item } from '../../../../../shared/models/items';
 
 @Component({
@@ -18,8 +16,7 @@ export class ProductAddChooseComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private formBuilder: FormBuilder,
-    private edit: EditItemService) {
+    private formBuilder: FormBuilder) {
     this.create();
   }
 
@@ -35,8 +32,6 @@ export class ProductAddChooseComponent implements OnInit {
   public next(): void {
 
     this.item = Object.assign(this.item, { name: '', description: '' });
-
-    this.edit.publish(this.item);
 
     this.router.navigate([`/content/products/add/stock/${this.item.id}`]);
 

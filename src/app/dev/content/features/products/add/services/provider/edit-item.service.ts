@@ -44,14 +44,36 @@ export class EditItemService {
           bExist = true;
         }
       }
-
     }
 
     if (bExist) {
+
       return this.item$;
+
     } else {
-      return this.itemService.get(id);
+
+      return this.getItem(id);
+
     }
+  }
+
+  private getItem(id: string) {
+
+    const self = this;
+    return Observable.create(observer => {
+      self.itemService.get(id).subscribe(
+        item1 => {
+
+          const item = new Item();
+          item.id = '0';
+
+          observer.next(item);
+          this.item$ = new BehaviorSubject<Item>(item);
+        }, error => {
+          observer.next();
+        }
+      );
+    });
   }
 
   public publish(data: Item): void {

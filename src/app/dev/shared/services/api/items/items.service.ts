@@ -17,15 +17,6 @@ export class ItemsService {
   }
 
   public get(id: string): Observable<any> {
-    const self = this;
-    return Observable.create(observer => {
-      self.http.get(`${this.urlGet}?key=${this.key}&rId=${id}`).subscribe(
-        success => {
-          observer.next(success);
-        }, error => {
-          observer.next();
-        }
-      );
-    });
+    return  this.http.get(`${this.urlGet}?key=${this.key}&rId=${id}`);
   }
 }

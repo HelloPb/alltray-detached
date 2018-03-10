@@ -5,7 +5,10 @@
         <div *ngFor="let date of dates.controls; let i=index" [formGroupName]="i">
 
             <div class="form-group">
+                
+                <at-calendar [date]="date.get('from')"></at-calendar>
                 <input type="text" class="form-control" id="from" aria-describedby="from" placeholder="DD\MM\YYYY">
+                
             </div>
 
             <div class="form-group">

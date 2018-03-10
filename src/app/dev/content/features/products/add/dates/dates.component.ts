@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Item } from '../../../../../shared/models/items';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
-import { EditItemService } from '../services/provider/edit-item.service';
 import { ExclusiveDate } from '../../../../../shared/models/exclusive-date';
 import { WeekDays } from '../../../../../shared/models/week-days';
 import { ItemActiveDate } from '../../../../../shared/models/item-active-date';
@@ -20,8 +19,7 @@ export class ProductAddDatesComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private formBuilder: FormBuilder,
-    private edit: EditItemService) {
+    private formBuilder: FormBuilder) {
     this.createForm();
   }
 
@@ -76,8 +74,6 @@ export class ProductAddDatesComponent implements OnInit {
 
     this.item = Object.assign(this.item, { name: '', description: '' });
 
-    this.edit.publish(this.item);
-
     this.router.navigate([`/content/products/add/stock/${this.item.id}`]);
 
   }
@@ -85,8 +81,6 @@ export class ProductAddDatesComponent implements OnInit {
   public next(): void {
 
     this.item = Object.assign(this.item, { name: '', description: '' });
-
-    this.edit.publish(this.item);
 
     this.router.navigate([`/content/products/add/save/${this.item.id}`]);
 

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Item } from '../../../../../shared/models/items';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EditItemService } from '../services/provider/edit-item.service';
 
 @Component({
   selector: 'at-product-add-done',
@@ -17,8 +16,7 @@ export class ProductAddDoneComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private formBuilder: FormBuilder,
-    private edit: EditItemService) {
+    private formBuilder: FormBuilder) {
     this.create();
   }
 

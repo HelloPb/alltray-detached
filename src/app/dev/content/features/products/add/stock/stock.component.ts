@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Item } from '../../../../../shared/models/items';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EditItemService } from '../services/provider/edit-item.service';
 
 @Component({
   selector: 'at-product-add-stock',
@@ -17,8 +16,7 @@ export class ProductAddStockComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private formBuilder: FormBuilder,
-    private edit: EditItemService) {
+    private formBuilder: FormBuilder) {
     this.create();
   }
 
@@ -35,8 +33,6 @@ export class ProductAddStockComponent implements OnInit {
 
     this.item = Object.assign(this.item, { name: '', description: '' });
 
-    this.edit.publish(this.item);
-
     this.router.navigate([`/content/products/add/choose/${this.item.id}`]);
 
   }
@@ -44,8 +40,6 @@ export class ProductAddStockComponent implements OnInit {
   public next(): void {
 
     this.item = Object.assign(this.item, { name: '', description: '' });
-
-    this.edit.publish(this.item);
 
     this.router.navigate([`/content/products/add/dates/${this.item.id}`]);
 

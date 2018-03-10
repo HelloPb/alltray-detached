@@ -58,8 +58,6 @@ export class ExclusiveDatesComponent implements OnInit, OnChanges, AfterViewInit
     return this.formGroup.get('exds') as FormArray;
   }
 
-  public ngOnInit(): void {
-  }
 
   public ngOnChanges(changes: SimpleChanges): void {
     for (const propName in changes) {
@@ -73,6 +71,9 @@ export class ExclusiveDatesComponent implements OnInit, OnChanges, AfterViewInit
         }
       }
     }
+  }
+
+  public ngOnInit(): void {
   }
 
   public ngAfterViewInit(): void {
