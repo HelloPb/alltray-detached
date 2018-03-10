@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductAddChooseComponent } from './choose.component';
-import { ExistingItemResolver } from '../services/resolver/edit-item.resolver';
+import { EditItemResolver } from '../services/resolver/edit-item.resolver';
 import { NewItemResolver } from '../services/resolver/new-item.resolver';
 
 const routes: Routes = [
@@ -16,7 +16,7 @@ const routes: Routes = [
       {
         path: ':id',
         component: ProductAddChooseComponent,
-        resolve: { item: ExistingItemResolver }
+        resolve: { item: EditItemResolver }
       }]
   }
 ];

@@ -1,0 +1,23 @@
+<div>
+</div>
+
+<div [formGroup]="formGroup">
+  <div formArrayName="exds">
+    <div class="row" *ngFor="let exd of exds.controls; let i=index" [formGroupName]="i">
+      <div class="col">
+        <input type="text" class="form-control" id="from" aria-describedby="from" placeholder="DD\MM\YYYY">
+      </div>
+      <div class="col col-auto">
+        <i class="fa fa-edit"></i>
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" id="to" aria-describedby="to" placeholder="DD\MM\YYYY">
+      </div>
+      <div class="col col-auto">
+        <i class="fa fa-edit"></i>
+      </div>
+       
+      <!-- <at-bh [bhs]="exclusiveDates[i].bhs"></at-bh> -->
+    </div>
+  </div>
+</div>

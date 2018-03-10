@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 import { Item } from '../../../../../../shared/models/items';
-import { ItemsService } from '../../../../../../shared/services/api/items/items.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { ItemsService } from '../../../../../../shared/services/api/items/items.service';
 
 @Injectable()
 export class EditItemService {
 
-  private item$: BehaviorSubject<Item> = new BehaviorSubject<Item>(new Item());
+  private item$: BehaviorSubject<Item>;
 
   constructor(private itemService: ItemsService) {
   }
@@ -23,7 +23,10 @@ export class EditItemService {
     } catch (e) {
     }
 
-    this.item$ = new BehaviorSubject<Item>(new Item());
+    const item = new Item();
+    item.id = '0';
+
+    this.item$ = new BehaviorSubject<Item>(item);
 
     return this.item$;
   }
@@ -32,12 +35,16 @@ export class EditItemService {
 
     let bExist = false;
 
-    const item = this.item$.value;
+    if (this.item$) {
 
-    if (item) {
-      if (item.id === id) {
-        bExist = true;
+      const item = this.item$.value;
+
+      if (item) {
+        if (item.id === id) {
+          bExist = true;
+        }
       }
+
     }
 
     if (bExist) {

@@ -26,7 +26,11 @@ const routes: Routes = [
       {
         path: 'done',
         loadChildren: 'app/dev/content/features/products/add/done/done.module#ProductAddDoneExModule'
-      }
+      },
+      {
+        path: '',
+        redirectTo: 'choose'
+      },
     ]
   }
 ];

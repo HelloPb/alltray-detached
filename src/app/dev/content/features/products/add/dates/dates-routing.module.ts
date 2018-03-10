@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ExistingItemResolver } from '../services/resolver/edit-item.resolver';
-import { NewItemResolver } from '../services/resolver/new-item.resolver';
+import { EditItemResolver } from '../services/resolver/edit-item.resolver';
 import { ProductAddDatesComponent } from './dates.component';
+import { BlankItemResolver } from '../services/resolver/blank-item.resolver';
 
 const routes: Routes = [
   {
@@ -11,12 +11,12 @@ const routes: Routes = [
       {
         path: '',
         component: ProductAddDatesComponent,
-        resolve: { item: NewItemResolver }
+        resolve: { item: BlankItemResolver }
       },
       {
         path: ':id',
         component: ProductAddDatesComponent,
-        resolve: { item: ExistingItemResolver }
+        resolve: { item: EditItemResolver }
       }]
   }
 ];

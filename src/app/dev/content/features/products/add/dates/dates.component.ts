@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Item } from '../../../../../shared/models/items';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import { EditItemService } from '../services/provider/edit-item.service';
+import { ExclusiveDate } from '../../../../../shared/models/exclusive-date';
+import { WeekDays } from '../../../../../shared/models/week-days';
+import { ItemActiveDate } from '../../../../../shared/models/item-active-date';
 
 @Component({
   selector: 'at-product-add-dates',
@@ -19,20 +22,54 @@ export class ProductAddDatesComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private edit: EditItemService) {
-    this.create();
+    this.createForm();
   }
 
-  private create(): void {
-
+  private createForm(): void {
     this.formGroup = this.formBuilder.group({
-      sun: this.formBuilder.array([]),
-      mon: this.formBuilder.array([]),
-      tue: this.formBuilder.array([]),
-      wed: this.formBuilder.array([]),
-      thu: this.formBuilder.array([]),
-      fri: this.formBuilder.array([]),
-      sat: this.formBuilder.array([]),
+      dates: this.formBuilder.array([])
     });
+  }
+
+  private updateForm(item: Item): void {
+    this.updateDatesForm(item.dates);
+  }
+
+  private updateDatesForm(dates: ItemActiveDate[]): void {
+
+    for (let i = 0; i < this.dates.length; i++) {
+      this.dates.removeAt(i);
+    }
+
+    dates.forEach(date => {
+      const formGroup = this.createDateForm();
+      this.updateDateForm(formGroup, date);
+      this.dates.push(formGroup);
+    });
+  }
+
+  private createDateForm(): FormGroup {
+
+    return this.formBuilder.group({
+      from: '',
+      to: '',
+      byWeekDays: true,
+      byDates: false
+    });
+  }
+
+  private updateDateForm(formGroup: FormGroup, date: ItemActiveDate): void {
+
+    formGroup.patchValue({
+      from: date.from,
+      to: date.to,
+      byWeekDays: date.byWeekDays,
+      byDates: date.byDates
+    });
+  }
+
+  get dates(): FormArray {
+    return this.formGroup.get('dates') as FormArray;
   }
 
   public back(): void {
@@ -58,6 +95,8 @@ export class ProductAddDatesComponent implements OnInit {
   public ngOnInit() {
     this.route.data.subscribe((data: { item: Item }) => {
       this.item = data.item;
+      this.updateForm(this.item);
     });
   }
+
 }

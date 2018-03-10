@@ -38,7 +38,7 @@ export class ProductAddChooseComponent implements OnInit {
 
     this.edit.publish(this.item);
 
-    this.router.navigate([`/content/products/add/stock`]);
+    this.router.navigate([`/content/products/add/stock/${this.item.id}`]);
 
   }
 

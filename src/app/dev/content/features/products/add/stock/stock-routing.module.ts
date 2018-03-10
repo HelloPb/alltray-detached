@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductAddStockComponent } from './stock.component';
-import { ExistingItemResolver } from '../services/resolver/edit-item.resolver';
-import { NewItemResolver } from '../services/resolver/new-item.resolver';
+import { EditItemResolver } from '../services/resolver/edit-item.resolver';
+import { BlankItemResolver } from '../services/resolver/blank-item.resolver';
 
 const routes: Routes = [
   {
@@ -11,12 +11,12 @@ const routes: Routes = [
       {
         path: '',
         component: ProductAddStockComponent,
-        resolve: { item: NewItemResolver }
+        resolve: { item: BlankItemResolver }
       },
       {
         path: ':id',
         component: ProductAddStockComponent,
-        resolve: { item: ExistingItemResolver }
+        resolve: { item: EditItemResolver }
       }]
   }
 ];
