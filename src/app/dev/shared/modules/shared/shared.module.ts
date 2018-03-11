@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CalendarModule } from '../../components/calendar/calendar.module';
+import { HourModule } from '../../components/hour/hour.module';
 
 @NgModule({
   exports: [
@@ -11,7 +12,8 @@ import { CalendarModule } from '../../components/calendar/calendar.module';
     RouterModule,
     ReactiveFormsModule,
     NgbModule,
-    CalendarModule
+    CalendarModule,
+    HourModule
   ]
 })
 export class SharedModule { }

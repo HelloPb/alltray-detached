@@ -1,8 +1,20 @@
-export class Bhs {
-    from: string;
-    to: string;
+
+
+export class HHMM {
+    h: string;
+    m: string;
     constructor() {
-        this.from = '';
-        this.to = '';
+        this.h = '';
+        this.m = '';
+    }
+}
+
+
+export class Bhs {
+    from: HHMM;
+    to: HHMM;
+    constructor() {
+        this.from = new HHMM();
+        this.to = new HHMM();
     }
 }

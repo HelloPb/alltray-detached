@@ -1,0 +1,17 @@
+<form [formGroup]="formGroup" class="select-style">
+
+  <div class="d-flex align-items-center float-left">
+    <div class="atc-hour">
+      <i class="fa fa-angle-up d-block mx-auto" (click)="addHour(h)"></i>
+      <input formControlName="hr" #h>
+      <i class="fa fa-angle-down d-block mx-auto" (click)="reduceHour(h)"></i>
+    </div>
+    <div>:</div>
+    <div class="atc-hour">
+      <i class="fa fa-angle-up d-block mx-auto" (click)="addMinute(h)"></i>
+      <input formControlName="hr" #m>
+      <i class="fa fa-angle-down d-block mx-auto" (click)="reduceMinute(h)"></i>
+    </div>
+  </div>
+
+</form>
