@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { HHMM } from '../../models/bhs';
 
 @Component({
   selector: 'at-hour',
@@ -9,8 +10,7 @@ import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 })
 export class HourComponent implements OnInit, OnChanges {
 
-  @Input() h: FormControl;
-  @Input() m: FormControl;
+  @Input() hhmm: HHMM;
 
   public formGroup: FormGroup;
 
@@ -27,35 +27,35 @@ export class HourComponent implements OnInit, OnChanges {
   }
 
   public addHour(h: number): void {
-    if (h < 24) {
+    if (+h < 24) {
       this.formGroup.patchValue({ h: ++h });
+      this.hhmm.h = +h;
     }
   }
 
   public reduceHour(h: number): void {
-    if (h > 0) {
+    if (+h > 0) {
       this.formGroup.patchValue({ h: --h });
+      this.hhmm.h = +h;
     }
   }
 
   public addMinute(m: number): void {
-    if (m < 60) {
+    if (+m < 59) {
       this.formGroup.patchValue({ m: ++m });
+      this.hhmm.m = +m;
     }
   }
 
   public reduceMinute(m: number): void {
-    if (m > 0) {
+    if (+m > 0) {
       this.formGroup.patchValue({ m: --m });
+      this.hhmm.m = +m;
     }
   }
 
-  private applyHour(h: FormControl): void {
-    this.formGroup.setControl('h', h);
-  }
-
-  private applyMinute(m: FormControl): void {
-    this.formGroup.setControl('m', m);
+  private applyHHMM(hhmm: HHMM): void {
+    this.formGroup.patchValue({ h: hhmm.h, m: hhmm.m });
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
@@ -65,11 +65,7 @@ export class HourComponent implements OnInit, OnChanges {
         const chng = changes[propName];
 
         switch (propName) {
-          case 'h': this.applyHour(chng.currentValue);
-            break;
-        }
-        switch (propName) {
-          case 'm': this.applyMinute(chng.currentValue);
+          case 'hhmm': this.applyHHMM(chng.currentValue);
             break;
         }
       }

@@ -9,7 +9,7 @@ export class NewItemResolver implements Resolve<Item> {
   constructor(private edit: EditItemService, private router: Router) { }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Item> {
-    return this.edit.newitem().take(1).map(item => {
+    return this.edit.newItem().take(1).map(item => {
       if (item) {
         return item;
       } else {

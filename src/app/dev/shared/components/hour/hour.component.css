@@ -23,7 +23,8 @@
 .atc-hour > input {
     width: 1.875rem;
     text-align: center;
-    border: 1px solid #e2e2e2;
+    /* border: 1px solid #e2e2e2; */
+    border: none;
     border-radius: 5px;
 }
 

@@ -1,0 +1,14 @@
+<div class="row no-gutters atc-bh" *ngFor="let bh of bhs">
+  <div class="col d-flex align-items-center">
+    <at-hour [hhmm]="bh.from"></at-hour>
+    <span style="font-size: 0.8rem">AM</span>
+  </div>
+  <div class="col d-flex align-items-center">
+    <at-hour [hhmm]="bh.to"></at-hour>
+    <span style="font-size: 0.8rem">AM</span>
+  </div>
+
+  <div class="col col-auto d-flex align-items-center">
+    <i class="fa fa-save mr-3 action up"></i>
+  </div>
+</div>

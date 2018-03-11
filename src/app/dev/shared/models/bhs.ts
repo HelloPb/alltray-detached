@@ -1,14 +1,15 @@
 
 
 export class HHMM {
-    h: string;
-    m: string;
+    h: number;
+    m: number;
+    am: boolean;
     constructor() {
-        this.h = '';
-        this.m = '';
+        this.h = 9;
+        this.m = 0;
+        this.am = true;
     }
 }
-
 
 export class Bhs {
     from: HHMM;

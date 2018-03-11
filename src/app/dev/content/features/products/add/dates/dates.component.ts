@@ -82,7 +82,9 @@ export class ProductAddDatesComponent implements OnInit {
 
     this.item = Object.assign(this.item, { name: '', description: '' });
 
-    this.router.navigate([`/content/products/add/save/${this.item.id}`]);
+    this.router.navigate([`/content/products/add/dates/${this.item.id}/date/0/exd/0`]);
+
+    // this.router.navigate([`/content/products/add/save/${this.item.id}`]);
 
   }
 
@@ -92,5 +94,4 @@ export class ProductAddDatesComponent implements OnInit {
       this.updateForm(this.item);
     });
   }
-
 }

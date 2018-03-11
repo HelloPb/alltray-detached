@@ -5,14 +5,15 @@
         <div *ngFor="let date of dates.controls; let i=index" [formGroupName]="i">
 
             <div class="form-group">
-                
+
                 <at-calendar [date]="date.get('from')"></at-calendar>
-                <input type="text" class="form-control" id="from" aria-describedby="from" placeholder="DD\MM\YYYY">
-                
+
             </div>
 
             <div class="form-group">
-                <input type="text" class="form-control" id="to" aria-describedby="to" placeholder="DD\MM\YYYY">
+
+                <at-calendar [date]="date.get('to')"></at-calendar>
+
             </div>
 
             <div class="form-check">
@@ -36,8 +37,7 @@
         </div>
     </div>
 
-    <button type="button" class="btn btn-outline-primary" (click)="cancel()">Cancel</button>
+    <button type="button" class="btn btn-outline-primary" (click)="back()">back</button>
     <button type="button" class="btn btn-outline-primary" (click)="next()">Next</button>
 
 </form>
-

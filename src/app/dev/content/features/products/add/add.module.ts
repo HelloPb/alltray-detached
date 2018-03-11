@@ -6,6 +6,9 @@ import { EditItemService } from './services/provider/edit-item.service';
 import { EditItemResolver } from './services/resolver/edit-item.resolver';
 import { NewItemResolver } from './services/resolver/new-item.resolver';
 import { BlankItemResolver } from './services/resolver/blank-item.resolver';
+import { EditItemDateExdResolver } from './services/resolver/edit-item-date-exd.resolver';
+import { EditItemDateWdsResolver } from './services/resolver/edit-item-date-wds.resolver';
+import { EditItemDateResolver } from './services/resolver/edit-item-date.resolver';
 
 @NgModule({
   imports: [
@@ -15,6 +18,9 @@ import { BlankItemResolver } from './services/resolver/blank-item.resolver';
     ProductAddComponent
   ],
   providers: [
+    EditItemDateExdResolver,
+    EditItemDateWdsResolver,
+    EditItemDateResolver,
     EditItemResolver,
     EditItemService,
     NewItemResolver,
