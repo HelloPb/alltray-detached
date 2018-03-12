@@ -19,17 +19,17 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "at",
       "styles": [
-        "./../node_modules/bootstrap/dist/css/bootstrap.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.css",
         "../node_modules/font-awesome/css/font-awesome.css",
-        "assets/css/styles.css",
-        "assets/css/styles.scss",
+        "assets/css/bootstrap.override.css",
         "assets/css/components/card.css",
-        "assets/css/rc.css",
         "assets/css/xl.css",
         "assets/css/lg.css",
         "assets/css/md.css",
         "assets/css/sm.css",
-        "assets/css/xs.css"
+        "assets/css/xs.css",
+        "assets/css/rc.css",
+        "assets/css/global.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

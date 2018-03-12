@@ -5,15 +5,11 @@
         <div *ngFor="let date of dates.controls; let i=index" [formGroupName]="i">
 
             <div class="form-group">
-
                 <at-calendar [date]="date.get('from')"></at-calendar>
-
             </div>
 
             <div class="form-group">
-
                 <at-calendar [date]="date.get('to')"></at-calendar>
-
             </div>
 
             <div class="form-check">
@@ -23,17 +19,12 @@
                 </label>
             </div>
 
-            <at-week-days [weekDays]="item.dates[i].weekDays"></at-week-days>
-
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="byDates">
                 <label class="form-check-label" for="byDates">
                     By exclusive dates
                 </label>
             </div>
-
-            <at-exclusive-dates [exclusiveDates]="item.dates[i].exclusiveDates"></at-exclusive-dates>
-
         </div>
     </div>
 

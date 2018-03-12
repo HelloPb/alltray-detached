@@ -5,8 +5,8 @@ export class ExclusiveDate {
     to: string;
     bhs: Bhs[];
     constructor() {
-        this.from = '';
-        this.to = '';
+        this.from = '01-05-1982';
+        this.to = '01-05-2053';
         this.bhs = [new Bhs()];
     }
 }

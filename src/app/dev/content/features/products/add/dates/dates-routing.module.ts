@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { EditItemResolver } from '../services/resolver/edit-item.resolver';
 import { BlankItemResolver } from '../services/resolver/blank-item.resolver';
 import { ProductAddDatesComponent } from './dates.component';
-import { ProductAddDatesOutletComponent } from './dates.outlet';
 import { ExclusiveDatesComponent } from './exd/exclusive-dates.component';
 import { WeekDaysComponent } from './wds/week-days.component';
 import { EditItemDateResolver } from '../services/resolver/edit-item-date.resolver';
@@ -16,12 +15,10 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: ProductAddDatesComponent,
         resolve: { item: BlankItemResolver }
       },
       {
         path: ':id',
-        component: ProductAddDatesOutletComponent,
         resolve: { item: EditItemResolver },
         children: [
           {

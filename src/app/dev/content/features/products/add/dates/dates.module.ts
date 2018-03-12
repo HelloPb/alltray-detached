@@ -5,7 +5,6 @@ import { ProductAddDatesRoutingModule } from './dates-routing.module';
 import { WeekDaysModule } from './wds/week-days.module';
 import { ExclusiveDatesModule } from './exd/exclusive-dates.module';
 import { ProductAddDatesComponent } from './dates.component';
-import { ProductAddDatesOutletComponent } from './dates.outlet';
 
 @NgModule({
   imports: [
@@ -13,7 +12,7 @@ import { ProductAddDatesOutletComponent } from './dates.outlet';
     WeekDaysModule,
     ExclusiveDatesModule
   ],
-  declarations: [ProductAddDatesComponent, ProductAddDatesOutletComponent]
+  declarations: [ProductAddDatesComponent]
 })
 export class ProductAddDatesModule { }
 
